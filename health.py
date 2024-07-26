@@ -21,12 +21,38 @@ diseases_list = {15: 'Fungal infection', 4: 'Allergy', 16: 'GERD', 9: 'Chronic c
 
 # Helper function to get detailed information
 def helper(dis):
-    desc = description[description['Disease'] == dis]['Description'].values[0]
-    pre = precautions[precautions['Disease'] == dis][['Precaution_1', 'Precaution_2', 'Precaution_3', 'Precaution_4']].values.tolist()[0]
-    med = medications[medications['Disease'] == dis]['Medication'].values.tolist()
-    die = diets[diets['Disease'] == dis]['Diet'].values.tolist()
-    wrkout = workout[workout['disease'] == dis]['workout'].values.tolist()
+    desc = description[description['Disease'] == dis]['Description']
+    if desc.empty:
+        desc = "Description not available."
+    else:
+        desc = " ".join([w for w in desc])
+
+    pre = precautions[precautions['Disease'] == dis][['Precaution_1', 'Precaution_2', 'Precaution_3', 'Precaution_4']]
+    if pre.empty:
+        pre = ["Precautions not available."]
+    else:
+        pre = [col for col in pre.values.flatten() if pd.notna(col)]
+
+    med = medications[medications['Disease'] == dis]['Medication']
+    if med.empty:
+        med = ["Medications not available."]
+    else:
+        med = [med for med in med.values.flatten() if pd.notna(med)]
+
+    die = diets[diets['Disease'] == dis]['Diet']
+    if die.empty:
+        die = ["Diet recommendations not available."]
+    else:
+        die = [die for die in die.values.flatten() if pd.notna(die)]
+
+    wrkout = workout[workout['disease'] == dis]['workout']
+    if wrkout.empty:
+        wrkout = ["Workouts not available."]
+    else:
+        wrkout = [wrkout for wrkout in wrkout.values.flatten() if pd.notna(wrkout)]
+
     return desc, pre, med, die, wrkout
+
 
 # Model Prediction function
 def get_predicted_value(patient_symptoms):
