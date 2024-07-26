@@ -12,7 +12,7 @@ medications = pd.read_csv('medications.csv')
 diets = pd.read_csv("diets.csv")
 
 # Load the prediction model from the pickle file
-with open('svc.pkl', 'rb') as file:
+with open('svc2.pkl', 'rb') as file:
     svc = pickle.load(file)
 
 # Symptoms dictionary and disease list
