@@ -74,19 +74,19 @@ if st.button('Predict'):
             st.header(f'The predicted disease is: {predicted_disease}')
             desc, pre, med, die, wrkout = helper(predicted_disease)
             st.subheader('Description')
-            st.code(desc)
+            st.write(desc)
             st.subheader('Precautions')
             for p in pre:
-                st.code(p)
+                st.write(p)
             st.subheader('Medications')
             for m in med:
-                st.code(m)
+                st.write(m)
             st.subheader('Diet')
             for d in die:
-                st.code(d)
+                st.write(d)
             st.subheader('Workout')
             for w in wrkout:
-                st.code(w)
+                st.write(w)
         else:
             st.write('Unable to predict the disease with the given symptoms.')
     else:
