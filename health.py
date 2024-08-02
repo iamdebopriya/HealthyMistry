@@ -100,7 +100,7 @@ st.markdown("""
         font-size: 2em; /* Title size */
      }
     .stButton > button {
-        background-color: #007bff; /* Button background color */
+        background-color: purple; /* Button background color */
         color: #fff; /* Button text color */
         border: none;
         padding: 10px 20px;
