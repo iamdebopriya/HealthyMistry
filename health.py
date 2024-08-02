@@ -95,7 +95,7 @@ if st.button('Predict'):
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to right, #f4f4f9, #a2c2e8); /* Yellow to orange gradient */
+         background: linear-gradient(to right, #ffffff, #007bff);
     }
     .stTitle {
         color: purple; /* Heading color */
