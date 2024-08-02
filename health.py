@@ -94,13 +94,11 @@ if st.button('Predict'):
     st.subheader("Be Healthy be Happy")
 st.markdown("""
     <style>
-    .stApp {
-         background: linear-gradient(to right, #ffffff, #007bff);
-    }
-    .stTitle {
+    
+     .stTitle {
         color: purple; /* Heading color */
         font-size: 2em; /* Title size */
-    }
+     }
     .stButton > button {
         background-color: #007bff; /* Button background color */
         color: #fff; /* Button text color */
